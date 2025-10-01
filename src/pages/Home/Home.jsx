@@ -3,6 +3,7 @@ import Services from "../Services/Services";
 import CompanyLogos from "./CompanyLogos";
 import Faq from "./Faq";
 import HeroSection from "./HeroSection";
+import Newsletter from "./Newsletter";
 import Pricing from "./Pricing";
 import TeamSection from "./TeamSection";
 import Testimonials from "./Testimonials";
@@ -18,8 +19,9 @@ const Home = () => {
       <Testimonials />
       <Blogs />
       <TeamSection />
-      <Pricing/>
-      <Faq/>
+      <Pricing />
+      <Faq />
+      <Newsletter />
     </>
   );
 };

@@ -59,7 +59,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? " border-b-3 border-red-600" : ""
+                    isActive ? " border-b-3 border-blue-600" : ""
                   }
                   key={index}
                   to={link.href}
@@ -72,7 +72,9 @@ const Navbar = () => {
         </ul>
         <div className="space-x-5 hidden sm:block">
           <button className="btn btn-outline btn-primary">Login</button>
-          <button className="btn btn-primary">Start Free Trial</button>
+          <NavLink to="/pricing" className="btn btn-primary">
+            Start Free Trial
+          </NavLink>
         </div>
       </div>
 
@@ -80,18 +82,14 @@ const Navbar = () => {
         <div className="container mx-auto p-5">
           <div className="flex flex-col gap-4">
             {navLinks.map((link, index) => (
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? " border-b-3 border-red-600" : ""
-                }
-                key={index}
-                to={link.href}
-              >
+              <NavLink key={index} to={link.href}>
                 {link.label}
               </NavLink>
             ))}
-            <button className="btn">Login</button>
-            <button className="btn">Start Free Trial</button>
+            <button className="btn btn-outline btn-primary">Login</button>
+            <NavLink to="/pricing" className="btn btn-primary">
+              Start Free Trial
+            </NavLink>
           </div>
         </div>
       )}
