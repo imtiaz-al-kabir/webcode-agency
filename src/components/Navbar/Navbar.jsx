@@ -1,97 +1,101 @@
-import { Link, NavLink } from "react-router";
+import { useState } from "react";
+import { CiMenuFries } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/service", label: "Services" },
+    { href: "/blogs", label: "Blogs" },
+    {
+      label: "Categories",
+      dropdown: [
+        { href: "/web-design", label: "Web Design" },
+        { href: "/web-dev", label: "Web Development" },
+        { href: "/ui-ux", label: "UI/UX Design" },
+        { href: "/digital-marketing", label: "Digital Marketing" },
+      ],
+    },
+  ];
   return (
-    <>
-      <div className="navbar max-w-screen-2xl container mx-auto bg-white">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {" "}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
-            </ul>
-          </div>
-          <NavLink to="/" className=" text-xl flex items-center gap-2">
-            <img src="logo.png" alt="logo" />
-            <span className="text-[#697077] font-semibold">WebCode</span>
-          </NavLink>
+    <nav>
+      <div className="container mx-auto flex justify-between items-center py-3 px-5 border-b-1 border-gray-100">
+        <div className="flex gap-2 items-center">
+          <img src="/logo.png" alt="" />
+          <h1 className="text-[#697077] font-semibold">WebCode</h1>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/service">Services</NavLink>
-            </li>
-            <li>
-              <NavLink to="/blogs">Blogs</NavLink>
-            </li>
+        {/* mobile */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="sm:hidden"
+        >
+          {isMenuOpen ? <IoMdClose /> : <CiMenuFries />}
+        </button>
+        <ul className="space-x-5   hidden sm:block sm:flex">
+          {navLinks.map((link, index) =>
+            link.dropdown ? (
+              <li key={index}>
+                {/* <details>
+                  <summary>{link.label}</summary>
+                  <ul className="p-2 ">
+                    
+                  </ul>
+                </details> */}
 
-            <li>
-              <details>
-                <summary>Categories</summary>
-                <ul className="p-2">
-                  <li>
-                    <Link to="/">Web Design</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Web Development</Link>
-                  </li>
-                  <li>
-                    <Link to="/">UI/UX Design</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Digital Marketing</Link>
-                  </li>
-                </ul>
-              </details>
-            </li>
-          </ul>
-        </div>
-        <div className="navbar-end gap-3">
-          <Link to="/login" className="btn btn-outline btn-primary">
-            Login
-          </Link>
-          <a className="btn btn-primary">Start Free Trial</a>
+                <details className="dropdown">
+                  <summary>{link.label}</summary>
+                  <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                    {link.dropdown.map((subLink, subIndex) => (
+                      <li key={subIndex}>
+                        <NavLink to={subLink.href}>{subLink.label}</NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              </li>
+            ) : (
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? " border-b-3 border-red-600" : ""
+                  }
+                  key={index}
+                  to={link.href}
+                >
+                  {link.label}
+                </NavLink>
+              </li>
+            )
+          )}
+        </ul>
+        <div className="space-x-5 hidden sm:block">
+          <button className="btn btn-outline btn-primary">Login</button>
+          <button className="btn btn-primary">Start Free Trial</button>
         </div>
       </div>
-    </>
+
+      {isMenuOpen && (
+        <div className="container mx-auto p-5">
+          <div className="flex flex-col gap-4">
+            {navLinks.map((link, index) => (
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? " border-b-3 border-red-600" : ""
+                }
+                key={index}
+                to={link.href}
+              >
+                {link.label}
+              </NavLink>
+            ))}
+            <button className="btn">Login</button>
+            <button className="btn">Start Free Trial</button>
+          </div>
+        </div>
+      )}
+    </nav>
   );
 };
 

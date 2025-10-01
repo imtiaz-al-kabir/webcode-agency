@@ -8,7 +8,7 @@ const HeroSection = () => {
   const closeModal = () => setShowModal(false);
   return (
     <div className="bg-[#f2f4f8] py-16 ">
-      <div className="container mx-auto flex justify-between items-center px-5">
+      <div className="container mx-auto flex-col gap-5 sm:flex-row flex justify-between items-center px-5">
         <div>
           <h1 className="text-4xl font-semibold">
             Creative Web Design <br /> For Businesses
@@ -39,7 +39,7 @@ const HeroSection = () => {
         </div>
 
         {showModal && (
-          <div className="fixed inset-0 flex justify-center items-center bg-black opacity-50 z-50">
+          <div className="fixed inset-0 -right-8 -top-11 flex justify-center items-center bg-black opacity-50 z-50">
             <div className="bg-white p-5 rounded-lg shadow-lg relative max-w-xl w-full">
               <button
                 className="absolute bg-black text-white rounded-full text-2xl top-3 right-3 w-6 h-6 pb-1 flex justify-center items-center hover:text-red-600"
