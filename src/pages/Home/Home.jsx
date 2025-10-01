@@ -1,3 +1,4 @@
+import CompanyLogos from "./CompanyLogos";
 import HeroSection from "./HeroSection";
 import Tools from "./Tools";
 
@@ -6,6 +7,7 @@ const Home = () => {
     <>
       <HeroSection />
       <Tools></Tools>
+      <CompanyLogos />
     </>
   );
 };

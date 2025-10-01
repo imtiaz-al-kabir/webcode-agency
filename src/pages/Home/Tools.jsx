@@ -4,6 +4,7 @@ import {
   LuSettings,
   LuSmartphone,
 } from "react-icons/lu";
+import HeadingSection from "../../components/HeadingSection/HeadingSection";
 
 const tools = [
   {
@@ -34,12 +35,14 @@ const tools = [
 const Tools = () => {
   return (
     <div className="container mx-auto py-10">
-      <div className="text-center">
+      {/* <div className="text-center">
         <p className="text-blue-600 font-semibold">The Tools You Need</p>
         <h2 className="text-3xl lg:text-4xl font-bold py-5">
           All-in-One Solution for Your Projects
         </h2>
-      </div>
+      </div> */}
+
+      <HeadingSection subtitle='The Tools You Need'  title='All-in-One Solution for Your Projects'></HeadingSection>
 
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 py-8 px-5">
         {tools.map((tool, index) => (
