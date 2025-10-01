@@ -47,11 +47,12 @@ const HeroSection = () => {
               >
                 &times;
               </button>
+
               <iframe
                 className="w-full aspect-video "
                 width="560"
                 height="315"
-                src="https://www.youtube.com/embed/fdKtjnU9zuA?si=sX9uoiNdLjJY78v2"
+                src="https://www.youtube.com/embed/sqJ2QhjBQaw?si=cIZ9ZLt_DXnUT1tc"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -1,5 +1,7 @@
+import Services from "../Services/Services";
 import CompanyLogos from "./CompanyLogos";
 import HeroSection from "./HeroSection";
+import Testimonials from "./Testimonials";
 import Tools from "./Tools";
 
 const Home = () => {
@@ -8,6 +10,8 @@ const Home = () => {
       <HeroSection />
       <Tools></Tools>
       <CompanyLogos />
+      <Services />
+      <Testimonials />
     </>
   );
 };
