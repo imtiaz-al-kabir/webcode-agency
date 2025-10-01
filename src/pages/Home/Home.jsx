@@ -1,3 +1,4 @@
+import Blogs from "../Blogs/Blogs";
 import Services from "../Services/Services";
 import CompanyLogos from "./CompanyLogos";
 import HeroSection from "./HeroSection";
@@ -12,6 +13,7 @@ const Home = () => {
       <CompanyLogos />
       <Services />
       <Testimonials />
+      <Blogs />
     </>
   );
 };

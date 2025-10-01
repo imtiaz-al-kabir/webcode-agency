@@ -1,10 +1,88 @@
+import HeadingSection from "../../components/HeadingSection/HeadingSection";
+
 const Blogs = () => {
+  const blogs = [
+    {
+      id: 1,
+      image: "/images/blogs/blog1.png",
+      category: "Technology",
+      title: "How AI is Shaping the Future of Web Development",
+      description:
+        "Discover how artificial intelligence is transforming the way we build and design websites.",
+      authorImage: "/images/authors/author1.png",
+      authorName: "John Doe",
+      authorRole: "Tech Blogger",
+    },
+    {
+      id: 2,
+      image: "/images/blogs/blog2.png",
+      category: "Design",
+      title: "10 Tips for Creating Stunning UI/UX Designs",
+      description:
+        "Learn the secrets to designing user interfaces that captivate and convert users.",
+      authorImage: "/images/authors/author2.png",
+      authorName: "Jane Smith",
+      authorRole: "UX Designer",
+    },
+    {
+      id: 3,
+      image: "/images/blogs/blog3.png",
+      category: "Development",
+      title: "Understanding JavaScript Closures in Depth",
+      description:
+        "A comprehensive guide to one of the most powerful concepts in JavaScript.",
+      authorImage: "/images/authors/author3.png",
+      authorName: "Mark Johnson",
+      authorRole: "Frontend Developer",
+    },
+    {
+      id: 4,
+      image: "/images/blogs/blog4.png",
+      category: "Business",
+      title: "Why Digital Transformation is Essential for Success",
+      description:
+        "Explore how businesses can thrive by adopting digital transformation strategies.",
+      authorImage: "/images/authors/author4.png",
+      authorName: "Emily Carter",
+      authorRole: "Business Analyst",
+    },
+  ];
+
   return (
-    <div>
-      <h1>This is blogs</h1>
+    <div className="py-10 container mx-auto">
+      <div>
+        <HeadingSection
+          subtitle="Our Blogs"
+          title="Latest Articles and Insights"
+        />
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 px-5">
+          {blogs.map((blog) => (
+            <div key={blog.id} className="shadow transition hover:shadow-xl ">
+              <img className="w-full " src={blog.image} alt={blog.title} />
+              <div className="p-5">
+                <h2 className="text-sm text-blue-500 font-medium uppercase mb-2">
+                  {blog.category}{" "}
+                </h2>
+                <h1 className="text-xl font-bold">{blog.title}</h1>
+                <p className="text-gray-600 text-sm">{blog.description}</p>
+              </div>
+
+              <div className="flex items-center gap-2 p-5">
+                <div>
+                  <img src={blog.authorImage} alt="" />
+                </div>
+                <div>
+                  <h2 className="font-bold">{blog.authorName}</h2>
+                  <h5 className="text-gray-600 text-sm">{blog.authorRole}</h5>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Blogs;
-<h1>This is blogs</h1>;
