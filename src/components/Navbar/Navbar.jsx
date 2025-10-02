@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,7 +71,9 @@ const Navbar = () => {
           )}
         </ul>
         <div className="space-x-5 hidden sm:block">
-          <button className="btn btn-outline btn-primary">Login</button>
+          <Link to="/login" className="btn btn-outline btn-primary">
+            Login
+          </Link>
           <NavLink to="/pricing" className="btn btn-primary">
             Start Free Trial
           </NavLink>
@@ -86,7 +88,9 @@ const Navbar = () => {
                 {link.label}
               </NavLink>
             ))}
-            <button className="btn btn-outline btn-primary">Login</button>
+            <Link to="/login" className="btn btn-outline btn-primary">
+              Login
+            </Link>
             <NavLink to="/pricing" className="btn btn-primary">
               Start Free Trial
             </NavLink>
